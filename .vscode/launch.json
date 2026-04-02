@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "chessboardisvalidornot",
+            "request": "launch",
+            "mainClass": "chessboardisvalidornot",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
             "name": "TowerofHanoi",
             "request": "launch",
             "mainClass": "TowerofHanoi",

@@ -4,7 +4,14 @@ https://www.geeksforgeeks.org/dsa/check-if-the-given-chessboard-is-validor-not/ 
 public class chessboardisvalidornot {
     public static boolean isValid(int n,int [][] c){
         boolean bool=true;
-        
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n-1;j++){
+                if(i>0 && j==0){
+                    if(c[i-1][0]==c[i][0]){return !bool;}
+                }
+                if(c[i][j]==c[i][j+1]){return !bool;}
+            }
+        }
 
         return bool;
     }
@@ -13,8 +20,8 @@ public class chessboardisvalidornot {
         int n = 2;
         int [][]c = {
             { 1, 0 },
-            {0, 1}};
-        System.out.println(isValid(n, c));
+            {0, 0}};
+        System.out.println("isValid: "+isValid(n, c));
     }
 }
 
