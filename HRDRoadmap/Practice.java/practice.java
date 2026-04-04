@@ -192,19 +192,17 @@ Output: 5.00000
             System.out.print(nums[i]+" ");
         }System.out.println();
     }
-    public static void insertionSort(int nums[]){
+    public static void insertionSort(int nums[]){   // 5, 3, 4, 1
 
-        for(int k=0;k<nums.length-1;k++){
-            int min=k;
-        for(int i=k+1;i<nums.length;i++){
-            if(nums[i]<nums[min]){
-                min = i;
-            }
-        }       int temp =nums[k];
-                nums[k] = nums[min];
-                nums[min] = temp;
+        for(int i=0;i<nums.length-1;i++){
+        for(int j=i+1;j>0;j--){
+            if(nums[j] < nums[j-1]){
+                int temp = nums[j];
+                nums[j] = nums[j-1];
+                nums[j-1] = temp;
+            }else{ break;}
+        }System.out.println();   
 
-        
         }System.out.println();
 
         System.out.println("sorted: ");
@@ -214,7 +212,7 @@ Output: 5.00000
     }
     
     public static void main(String[] args) {
-        int []nums = {1,12,-5,-6,50,3};
+        int []nums = {5, 3, 4, 1};
         insertionSort(nums);
     }
 }

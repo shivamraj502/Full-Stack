@@ -97,7 +97,7 @@ public class InsertDelete {
         while(temp != null){
             System.out.print(temp.data+" ");
             temp=temp.next;
-        }System.out.println();
+        }System.out.println();temp=head;
 
         Node head2 = insertAtFront(head,12);
         Node temp2 = head2;

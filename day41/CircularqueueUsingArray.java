@@ -1,11 +1,4 @@
-/**
-Day 42 – Circular & Linked Queue
-Concept: Circular queue, queue using linked list.
-Problem: Circular Queue Implementation – GFG
-Goal: Handle overflow efficiently.
- */
-
-public class CircularQueue {
+public class CircularqueueUsingArray {
     static int arr[] = new int[5];
     static int front=-1;
     static int rear=-1;
@@ -21,16 +14,16 @@ public class CircularQueue {
             arr[rear]=n;
             size++;
             System.out.println("Enqued: "+n);
-            System.out.println("\nEnqued front: "+front);
-            System.out.println("\nEnqued rear: "+rear);
+            // System.out.println("Enqued front: "+front);
+            // System.out.println("Enqued rear: "+rear);
             // System.out.println("..");
         }else{
             rear=((rear+1)%arr.length);
             arr[rear]=n;
             size++;
             System.out.println("Enqued: "+n);
-            System.out.println("\nEnqued front: "+front);
-            System.out.println("\nEnqued rear: "+rear);
+            // System.out.println("Enqued front: "+front);
+            // System.out.println("Enqued rear: "+rear);
             // System.out.println("...");
         }
     }
@@ -38,11 +31,13 @@ public class CircularQueue {
     public static void Dequeue(){    // can also do front++ at the plece of element shifting
         if(size==0){
             System.out.println("Queue Underflow");
+            return;
         }else{
-            System.out.println("\ndequeue element: "+ arr[front]);
+            // System.out.println("front: "+front);
+            System.out.println("dequeue: "+ arr[front]);
             front = ((front+1) % arr.length);         // front = (front % arr.length)+1; and front = ((front+1) % arr.length); are different
             size--;
-            System.out.println("\ndequeue front: "+front);
+            // System.out.println("dequeue front: "+front);
         }
     }
 
@@ -57,34 +52,42 @@ public class CircularQueue {
     
     public static void Peek(){
         if(size==0)System.out.println("Empty Queue");
-        else System.out.println("Peek: "+arr[front]);
+        else {System.out.println("Peek: "+arr[front]);}
+        
     }
 
     public static void display(){
-        for(int i=0;i<size;i++){
-            System.out.print(arr[front]+" ");
-            front = ((front+1) % arr.length);
+        // System.out.println("size: "+size);
+        for(int i=0,j=front;i<size;i++){
+            System.out.print(arr[j]+" ");
+            j = ((j+1) % arr.length);
         }System.out.println();
     }
 
     public static void main(String[] args) {
+        System.out.println("Enqueue:");
         Enqueue(5);
         Enqueue(4);
         Enqueue(3);
         Enqueue(2);
         Enqueue(1);
         Enqueue(66);
+
         System.out.println("Display:");
         display();
 
+        System.out.println("Dequeue:");
         Dequeue();
         Dequeue();
-        // Dequeue();
-        // Dequeue();
+        Dequeue();
+        Dequeue();
+
         System.out.println("Display:");
         display();
-        
+       
+        // System.out.println("Enqueue:");
         Enqueue(6);
+
         System.out.println("Display:");
         display();
         
@@ -92,8 +95,5 @@ public class CircularQueue {
         System.out.println("size: "+Size());
 
         Peek();
-
     }
 }
-
-
