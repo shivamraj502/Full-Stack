@@ -1,12 +1,18 @@
 public class EulersTotientFunction {
-    public static void gcd(int n,int m){
+    public static int gcd(int n,int m){
         int min,max,count=0,gcd=0;
         if(n>m){max=n;min=m;}
         else {max=m;min=n;}
 
-        for(int i=1;i<min;i++){
-            if(max%i==0){gcd=i;count++;}
-        }System.out.println("gcd: "+ gcd);
+        for(int i=1;i<=min;i++){
+            if(max%i==0 && min%i==0){gcd=i;count++;
+                // System.out.println("gcd: "+gcd);
+                // System.out.println("count: "+count);
+            }
+        }  
+        // System.out.println("final gcd: "+ gcd);
+
+        return gcd;
     }
     public static void primefactors(int n){       
         int count=0;
@@ -41,8 +47,21 @@ public class EulersTotientFunction {
 
     }
     public static void euler(int n){       
-        
-        System.out.println();
+        // if gcd == 1 sout i
+
+        // System.out.println("mod: "+n%1);
+        // System.out.println("i: ");
+
+        int count=0;
+        for(int i=1;i<n;i++){
+            // System.out.println("i:- "+i);
+            if(gcd(i,n)==1){
+                count++;
+                // System.out.println("i: "+i);
+            }
+        }System.out.println("count: "+count);
+
+
     }
     public static void main(String[] args) {
         int n=11;
@@ -50,14 +69,14 @@ public class EulersTotientFunction {
 
         // int m=10;
         // gcd(n, m);
-        primefactors(n);
+        // primefactors(n);
     }
 }
 
 /**
 Euler's Totient Function
 Examples:
-Input: n = 11
+Input: n = 11  // if gcd == 1 sout i
 Output: 10
 Explanation: From 1 to 11, 1,2,3,4,5,6,7,8,9,10 are relatively prime to 11.
 

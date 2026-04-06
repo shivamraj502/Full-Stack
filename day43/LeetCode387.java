@@ -7,20 +7,20 @@ Goal: Use queue for problem-solving.
 
 public class LeetCode387 {
     public static int firstUniqChar(String s) {
-        for(int i=0;i<s.length()-1;i++){
-            int count=1;
-            for(int j=i+1;j<s.length();j++){
-                if(s.charAt(i)==s.charAt(j)){count++;}
+        if(s.length()==1){return 0;}
+        for(int i=0;i<s.length();i++){
+            int count=0;
+            for(int j=0;j<s.length();j++){
+                if(s.length()==1 ||s.charAt(i)==s.charAt(j)){count++;}
             }
-            System.out.println("i"+i);
             if(count==1){return i;}
         }
         
         return -1;
     }
     public static void main(String[] args) {
-        String s = "leetcode";
-        System.out.println(s);
+        String s = "lovelevetcotddecez";
+        System.out.println("s: "+s);
         System.out.println(firstUniqChar(s));
     }
 }
