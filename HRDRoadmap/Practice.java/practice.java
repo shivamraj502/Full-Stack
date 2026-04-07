@@ -299,6 +299,7 @@ Output: 5.00000
                 if(st.pop()==']'){
                     continue;
                 }else{return !istrue;}
+                
             }
         }
 
