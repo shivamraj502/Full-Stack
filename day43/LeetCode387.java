@@ -7,7 +7,7 @@ Goal: Use queue for problem-solving.
 
 public class LeetCode387 {
     public static int firstUniqChar(String s) {
-        if(s.length()==1){return 0;}
+        // if(s.length()==1){return 0;}
         for(int i=0;i<s.length();i++){
             int count=0;
             for(int j=0;j<s.length();j++){
