@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "PriorityQueue",
+            "request": "launch",
+            "mainClass": "PriorityQueue",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
             "name": "deque",
             "request": "launch",
             "mainClass": "deque",

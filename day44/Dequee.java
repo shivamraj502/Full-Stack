@@ -5,8 +5,9 @@ Problem: Priority Queue in Java – GFG
 Goal: Use built-in Java utilities.
  */
 
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.*;
+// import java.util.ArrayDeque;
+// import java.util.Deque;
 public class Dequee {
     public static void main(String[] args) {
         
