@@ -14,36 +14,29 @@ public class LeetCode875 {
             if(piles[i]>max){max=piles[i];}
         }System.out.println("min: "+min+" ,max: "+max);
 
-        for(int i=0;i<max;i++){ 
+        for(int i=1;i<=max;i++){ 
             int sum=0;
-
             for(int j=0;j<piles.length;j++){
-                
-                if(min>max){break;}
-
-            if(piles[i]%i==0){
-                System.out.println("new: "+ (piles[i]/i));
-                sum+=(piles[i]/i);
-                System.out.println("new sum: "+sum);}
-            else{
-                System.out.println("else new: "+ ((piles[i]/i)+1));
-                sum+=((piles[i]/i)+1);
-                System.out.println("else sum: "+sum);}
-            min++;
+            if(piles[j]%i==0){
+                // System.out.println("new: "+ (piles[j]/i));
+                sum=sum+(piles[j]/i);
+                // System.out.println("new sum: "+sum);
+            }else{
+                // System.out.println("else new: "+ ((piles[j]/i)+1));
+                sum=sum+((piles[j]/i)+1);
+                // System.out.println("else sum: "+sum);
             }
-            
-            System.out.println("min: "+min);
-            System.out.println("sum: "+sum);
-            System.out.println();
         }
-        
-        return -1;
+            // System.out.println("sum: "+sum);
+            if(sum==h){return i;}
+        }
+        return -1;   
     }
 
     public static void main(String[] args) {
-        int[] piles = { 3, 6, 7, 11 };
-        int h = 8;
-        minEatingSpeed(piles, h);
+        int[] piles = { 30,11,23,4,20 };
+        int h = 6;
+        System.out.println("speed: "+minEatingSpeed(piles, h));
     }
 }
 
