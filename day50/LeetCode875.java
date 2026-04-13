@@ -35,6 +35,7 @@ public class LeetCode875 {
 
     public static void main(String[] args) {
         int[] piles = { 30,11,23,4,20 }; //speed = 50 banana / hour    { 30,11,23,4,20 }
+        //int[] piles = { 3,6,7,11 };    //speed = 50 banana / hour    { 30,11,23,4,20 }
         int h = 6;                                            //speed23:  2  1  1 1  1
         System.out.println("speed: "+minEatingSpeed(piles, h));
         // System.out.println(Math.ceil(15.2));
