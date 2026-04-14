@@ -14,7 +14,9 @@ public class MergeSort2 {
     }
 
     public static int[] merge(int[] arr,int left,int right){
+        int mid = ( left + right)/2;
 
+        return 0;
     }
     public static void main(String[] args) {
         int [] arr = {5,8,9,88,4};
