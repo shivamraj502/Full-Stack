@@ -85,9 +85,38 @@ public class MergeSort2 {
             arr[k++]=right[j++]; 
         }
     }
+
+    public static void mergeSort3(int[] arr) {
+        if (arr.length <= 1) {
+            return;
+        }
+
+        int mid = arr.length / 2;
+
+        // Left gets larger size when length is odd
+        int[] left = new int[arr.length - mid];   // Left is larger or equal
+        int[] right = new int[mid];               // Right is smaller or equal
+
+        // Copy left half (from start)
+        for (int i = 0; i < arr.length - mid; i++) {
+            left[i] = arr[i];
+        }
+
+        // Copy right half (from mid to end)
+        for (int i = mid; i < arr.length; i++) {
+            right[i - mid] = arr[i];
+        }
+
+        // Recursive calls
+        mergeSort(left);
+        mergeSort(right);
+
+        // Merge the sorted halves
+        merge(arr, left, right);
+    }
     public static void main(String[] args) {
         int [] arr = {5,8,9,88,4};
-        mergeSort(arr);
+        mergeSort2(arr);
 
         System.out.println("sorted array: ");
         for(int i=0;i<arr.length;i++){
