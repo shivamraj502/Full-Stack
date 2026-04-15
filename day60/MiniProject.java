@@ -28,6 +28,7 @@ public class MiniProject {
         System.out.println("1. Bubble Sort");
         System.out.println("2. Selection Sort");
         System.out.println("3. Insertion Sort");
+        System.out.println("4. Merge Sort");
         System.out.print("Enter your choice: ");
         int choice = sc.nextInt();
 
@@ -46,6 +47,9 @@ public class MiniProject {
             case 3:
                 insertionSort(arr);
                 break;
+            case 4:
+                mergeSort(arr);
+                break;
             default:
                 System.out.println("Invalid choice!");
                 return;
@@ -58,25 +62,24 @@ public class MiniProject {
         sc.close();
     }
 
-    // ==================== Bubble Sort with Visualization ====================
+    // ==================== Bubble Sort ====================
     public static void bubbleSort(int[] arr) {
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
             System.out.println("Pass " + (i + 1) + ":");
             for (int j = 0; j < n - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
-                    // Swap
                     int temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
                 }
-                printArray(arr);   // Show array after each swap
+                printArray(arr);
             }
             System.out.println("-------------------");
         }
     }
 
-    // ==================== Selection Sort with Visualization ====================
+    // ==================== Selection Sort ====================
     public static void selectionSort(int[] arr) {
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
@@ -87,7 +90,6 @@ public class MiniProject {
                     minIndex = j;
                 }
             }
-            // Swap
             if (minIndex != i) {
                 int temp = arr[i];
                 arr[i] = arr[minIndex];
@@ -98,7 +100,7 @@ public class MiniProject {
         }
     }
 
-    // ==================== Insertion Sort with Visualization ====================
+    // ==================== Insertion Sort ====================
     public static void insertionSort(int[] arr) {
         int n = arr.length;
         for (int i = 1; i < n; i++) {
@@ -109,12 +111,60 @@ public class MiniProject {
             while (j >= 0 && arr[j] > key) {
                 arr[j + 1] = arr[j];
                 j--;
-                printArray(arr);   // Show shifting
+                printArray(arr);
             }
             arr[j + 1] = key;
             printArray(arr);
             System.out.println("-------------------");
         }
+    }
+
+    // ==================== Merge Sort with Visualization ====================
+    public static void mergeSort(int[] arr) {
+        mergeSortHelper(arr, 0, arr.length - 1);
+    }
+
+    private static void mergeSortHelper(int[] arr, int left, int right) {
+        if (left >= right) return;
+
+        int mid = left + (right - left) / 2;
+
+        // Recursively sort left and right halves
+        mergeSortHelper(arr, left, mid);
+        mergeSortHelper(arr, mid + 1, right);
+
+        // Merge the sorted halves
+        merge(arr, left, mid, right);
+    }
+
+    private static void merge(int[] arr, int left, int mid, int right) {
+        System.out.println("Merging: [" + left + " to " + mid + "] and [" + (mid+1) + " to " + right + "]");
+
+        int[] temp = new int[right - left + 1];
+        int i = left, j = mid + 1, k = 0;
+
+        while (i <= mid && j <= right) {
+            if (arr[i] <= arr[j]) {
+                temp[k++] = arr[i++];
+            } else {
+                temp[k++] = arr[j++];
+            }
+        }
+
+        while (i <= mid) {
+            temp[k++] = arr[i++];
+        }
+        while (j <= right) {
+            temp[k++] = arr[j++];
+        }
+
+        // Copy back to original array
+        for (int m = 0; m < temp.length; m++) {
+            arr[left + m] = temp[m];
+        }
+
+        printArray(arr);   // Show array after each merge
+        System.out.println("-------------------");
     }
 
     // Helper method to print array
