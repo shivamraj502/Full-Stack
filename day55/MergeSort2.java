@@ -9,6 +9,8 @@ public class MergeSort2 {
         if(arr.length<=1){return;}
 
         int mid=arr.length/2;
+        // System.out.println("mid: "+mid);
+        // System.out.println("arr.legth - mid: "+(arr.length-mid));
         int [] left = new int[arr.length-mid];
         int [] right = new int[mid];
 
@@ -18,7 +20,7 @@ public class MergeSort2 {
         }
         for(int i=mid+1;i<arr.length;i++){
             // System.out.println("..");
-            right[i-mid-1]=arr[i];
+            right[i-(mid+1)]=arr[i];
         }
 
         mergeSort(left);
@@ -85,7 +87,7 @@ public class MergeSort2 {
     }
     public static void main(String[] args) {
         int [] arr = {5,8,9,88,4};
-        mergeSort2(arr);
+        mergeSort(arr);
 
         System.out.println("sorted array: ");
         for(int i=0;i<arr.length;i++){
