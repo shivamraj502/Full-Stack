@@ -24,9 +24,29 @@ public class RecursiononArrays {
         // System.out.println(i);
 
     }
+    public static int max(int [] nums,int i){
+        int max=nums[0];
+        if(nums[i]>nums[i-1]){
+            return nums[i];
+        }
+
+        return max(nums,i+1);
+
+    }
+    public static int search(int [] nums,int i){
+        
+        if(i==nums.length-1){
+            return nums[i];
+        }
+
+        return nums[i]+sum2(nums,i+1);
+        // System.out.println(i);
+
+    }
     public static void main(String[] args) {
         int [] nums = {1,2,3,4,5,6};
         
-        System.out.println(sum2(nums,0));
+        System.out.println("sum: "+sum2(nums,0));
+        System.out.println("max: "+max(nums,0));
     }
 }
