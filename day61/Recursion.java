@@ -25,7 +25,7 @@ public class Recursion {
         recursion3(n-1);
     }
     public static void recursion4(int n){
-        int i=1;
+        
         if(n==0){return;} 
 
         recursion4(n-1);
