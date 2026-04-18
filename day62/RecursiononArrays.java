@@ -31,7 +31,22 @@ public class RecursiononArrays {
         }
 
         return max(nums,i+1);
+    }
+    public static int max2(int [] nums,int i){
+        
+        if(i==nums.length-1){
+            return nums[i];
+        }
 
+        int maxVal=max2(nums,i+1);
+
+        // System.out.println(nums[i]);
+
+        if(nums[i] > maxVal){
+            return nums[i];
+        }else{
+            return maxVal;
+        }
     }
     public static int search(int [] nums,int i){
         
@@ -46,7 +61,7 @@ public class RecursiononArrays {
     public static void main(String[] args) {
         int [] nums = {1,2,3,4,5,6};
         
-        System.out.println("sum: "+sum2(nums,0));
-        System.out.println("max: "+max(nums,0));
+        // System.out.println("sum: "+sum2(nums,0));
+        System.out.println("max: "+max2(nums,0));
     }
 }
