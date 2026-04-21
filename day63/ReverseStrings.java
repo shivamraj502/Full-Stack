@@ -26,8 +26,30 @@ public class ReverseStrings {
 
         return rev3(s,i+1) + s.charAt(i);
     }
+    public static boolean isPal(String s,int i, int l){
+        l = s.length()-1;
+        
+        if(i>l){
+            return true;
+        }
+
+        return isPal(s,i+1,l-1);
+    }
+    public static boolean isPal2(String s,int i, int l){
+        l = s.length()-1;
+        
+        if(i>=l){
+            return true;
+        }
+
+        if(s.charAt(i) != s.charAt(l)) {
+        return false;
+        }
+
+        return isPal2(s,i+1,l-1);
+    }
     public static void main(String[] args) {
         String s = "hello google";
-        System.out.println(rev3(s,0));
+        System.out.println(isPal2(s,0,(s.length()-1)));
     }
 }
