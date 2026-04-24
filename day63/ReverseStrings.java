@@ -45,7 +45,7 @@ public class ReverseStrings {
 
         if(s.charAt(i) != s.charAt(l)) {
         return false;
-        }
+        }System.out.println();
 
         return isPal2(s,i+1,l-1);
     }
