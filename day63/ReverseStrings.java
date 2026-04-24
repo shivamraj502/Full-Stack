@@ -31,9 +31,10 @@ public class ReverseStrings {
         
         if(i>l){
             return true;
-        }
+        }System.out.println();
 
         return isPal(s,i+1,l-1);
+
     }
     public static boolean isPal2(String s,int i, int l){
         l = s.length()-1;
