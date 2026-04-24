@@ -49,8 +49,11 @@ public class ReverseStrings {
 
         return isPal2(s,i+1,l-1);
     }
+    public static void remDup(String s){
+        
+    }
     public static void main(String[] args) {
         String s = "hello google";
-        System.out.println(isPal2(s,0,(s.length()-1)));
+        remDup(s);
     }
 }
