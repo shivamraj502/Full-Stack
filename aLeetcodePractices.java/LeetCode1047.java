@@ -2,18 +2,21 @@
 
 public class LeetCode1047 {
     public static String removeDuplicates(String s) {
-        String str = "";
-        char[] c = s.toCharArray();
-
-        for(int i= 0;i<s.length();i++){
-            
+        
+        StringBuilder stack = new StringBuilder();
+        for(Character c : s.toCharArray()){
+            if(stack.length()>0 && stack.charAt(stack.length()-1)==c){
+                stack.deleteCharAt(stack.length()-1);
+            }else{
+                stack.append(c);
+            }
         }
 
-        return str;
+        return stack.toString();
     }
     public static void main(String[] args) {
-        String s = "aaaa";
-        System.out.println(removeDuplicates(s));
+        String s = "aaaab";
+        System.out.println("output: "+removeDuplicates(s));
     }
 }
 
