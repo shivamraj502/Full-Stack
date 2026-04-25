@@ -20,7 +20,7 @@ public class LeetCode1047 {
 
         for(int j=0;j<s.length();j++){
             char c = s.charAt(j);
-            if(i>0 && s.charAt(i-1)==c){
+            if(i>0 && stack[i-1]==c){
                 i--;
             }else{
                 stack[i]=c;
@@ -35,25 +35,19 @@ public class LeetCode1047 {
         int i=0;
 
         for(char c : s.toCharArray()){
-            //char c = s.charAt(j);
-            System.out.println(".");
-            if(i>0 && s.charAt(i-1)==c){
+            if(i>0 && stack[i-1]==c){
                 i--;
-                System.out.println("i: "+ i);
-                System.out.println("..");
             }else{
                 stack[i]=c;
                 i+=1;
-                System.out.println("i: "+i);
-                System.out.println("...");
             }
         }
 
         return new String(stack,0,i);
     }
     public static void main(String[] args) {
-        String s = "aabbaca";
-        System.out.println("output: "+removeDuplicates(s));
+        String s = "azxlxzy";
+        System.out.println("output: "+removeDuplicates3(s));
     }
 }
 
