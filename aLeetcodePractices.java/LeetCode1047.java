@@ -30,9 +30,30 @@ public class LeetCode1047 {
 
         return new String(stack,0,i);
     }
+    public static String removeDuplicates3(String s) {
+        char[] stack = new char[s.length()];
+        int i=0;
+
+        for(char c : s.toCharArray()){
+            //char c = s.charAt(j);
+            System.out.println(".");
+            if(i>0 && s.charAt(i-1)==c){
+                i--;
+                System.out.println("i: "+ i);
+                System.out.println("..");
+            }else{
+                stack[i]=c;
+                i+=1;
+                System.out.println("i: "+i);
+                System.out.println("...");
+            }
+        }
+
+        return new String(stack,0,i);
+    }
     public static void main(String[] args) {
-        String s = "azxxzy";
-        System.out.println("output: "+removeDuplicates2(s));
+        String s = "aabbaca";
+        System.out.println("output: "+removeDuplicates(s));
     }
 }
 
