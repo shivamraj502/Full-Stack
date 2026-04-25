@@ -16,7 +16,7 @@ public class leetcode83 {
         }
     }
 
-    public static ListNode deleteDuplicates(ListNode head) {
+    public static ListNode deleteDuplicates2(ListNode head) {
 
         ListNode node = head;
 
@@ -31,7 +31,23 @@ public class leetcode83 {
 
         return head;
     }
+    public static ListNode deleteDuplicates(ListNode head) {
 
+    if (head == null || head.next == null) {
+        return head;
+    }
+
+    // solve for rest
+    head.next = deleteDuplicates(head.next);
+
+    // check duplicate
+    if (head.val == head.next.val) {
+        return head.next; // skip current
+    }
+
+    return head;
+    }
+    
     // Helper to print list
     public static void printList(ListNode head) {
         while (head != null) {
