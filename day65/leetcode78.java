@@ -7,8 +7,9 @@ Problem: Subsets – LeetCode 78
 Goal: Learn binary recursion pattern.
  */
 public class leetcode78 {
-    public List<List<Integer>> subsets(int[] nums) {
+    public static List<List<Integer>> subsets(int[] nums) {
         
+        return null;
     }
     public static void main(String[] args) {
         int nums[] = {1,2,3};
