@@ -11,22 +11,35 @@ public class leetcode78 {
         
         return null;
     }
-    public static int subsets2(int n) { //Count total number of subsets
+    public static int subsets1(int n) { //Count total number of subsets
         int Tsets = 1;
         for(int i=0;i<n;i++){
             Tsets *= 2;
         }
         return Tsets;
     }
-    public static int subsets2_b(int n) { //Count total number of subsets
+    public static int subsets1_b(int n) { //Count total number of subsets
         if(n<0){return -1;}
         if(n==0){return 1;}
         return 2*subsets2_b(n-1);
     }
+    public static List<List<Character>> subsets2(String s) { //Print all subsets of a string
+        if(s == ""){
+            return null;
+        }
+        
+        // String pick = out + s.charAt(0);
+        // s.pick_back;
+        // String notPick = out;
+        
+        // return subsets2();
+        return null;
+    }
     public static void main(String[] args) {
+        // int n = 3;
         // int nums[] = {1,2,3};
-        int n = 3;
-        System.out.println(subsets2_b(n));
+        String s = "ab";
+        System.out.println(subsets2(s));
     }
 }
 
