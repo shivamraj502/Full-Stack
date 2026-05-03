@@ -18,10 +18,14 @@ public class leetcode78 {
         }
         return Tsets;
     }
+    public static int subsets2_b(int n) { //Count total number of subsets
+        if(n==0){return 1;}
+        return 2*subsets2_b(n-1);
+    }
     public static void main(String[] args) {
         // int nums[] = {1,2,3};
         int n = 3;
-        System.out.println(subsets2(n));
+        System.out.println(subsets2_b(n));
     }
 }
 
