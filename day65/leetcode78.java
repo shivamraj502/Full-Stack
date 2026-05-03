@@ -19,6 +19,7 @@ public class leetcode78 {
         return Tsets;
     }
     public static int subsets2_b(int n) { //Count total number of subsets
+        if(n<0){return -1;}
         if(n==0){return 1;}
         return 2*subsets2_b(n-1);
     }
