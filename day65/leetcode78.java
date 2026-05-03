@@ -21,7 +21,7 @@ public class leetcode78 {
     public static int subsets1_b(int n) { //Count total number of subsets
         if(n<0){return -1;}
         if(n==0){return 1;}
-        return 2*subsets2_b(n-1);
+        return 2*subsets1_b(n-1);
     }
     public static List<List<Character>> subsets2(String s) { //Print all subsets of a string
         if(s == ""){
@@ -35,11 +35,22 @@ public class leetcode78 {
         // return subsets2();
         return null;
     }
+    public static void subsets2_b(String s) { //Print all subsets of a string
+        if(s == ""){
+            System.out.println("[]");
+        }
+        
+        for(int i=0;i<s.length();i++){
+            for(int j=0;j<=i;j++){
+                System.out.print(".");
+            }System.out.println();
+        }
+    }
     public static void main(String[] args) {
         // int n = 3;
         // int nums[] = {1,2,3};
         String s = "ab";
-        System.out.println(subsets2(s));
+        subsets2_b(s);
     }
 }
 
