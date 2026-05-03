@@ -11,9 +11,12 @@ public class leetcode78 {
         
         return null;
     }
-    public static int subsets2(int n) {
-        
-        return 2*n;
+    public static int subsets2(int n) { //Count total number of subsets
+        int Tsets = 1;
+        for(int i=0;i<n;i++){
+            Tsets *= 2;
+        }
+        return Tsets;
     }
     public static void main(String[] args) {
         // int nums[] = {1,2,3};
