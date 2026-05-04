@@ -5,6 +5,7 @@ Problem: Subsets – LeetCode 78
 Goal: Learn binary recursion pattern.
  */
 
+import java.util.ArrayList;
 import java.util.List;
 public class leetcode78 {
     public static List<List<Integer>> subsets(int[] nums) {
@@ -35,22 +36,92 @@ public class leetcode78 {
         // return subsets2();
         return null;
     }
-    public static void subsets2_b(String s) { //Print all subsets of a string
-        if(s == ""){
-            System.out.println("[]");
-        }
-        
-        for(int i=0;i<s.length();i++){
-            for(int j=0;j<=i;j++){
-                System.out.print(".");
-            }System.out.println();
-        }
+    public static List<List<Character>> subsets2_b(String s) {
+
+        List<List<Character>> result = new ArrayList<>(); 
+        // result = big box → stores all subsets
+
+        helper(s, 0, new ArrayList<>(), result); 
+        // start recursion:
+        // s = input string
+        // 0 = start index
+        // [] = current subset (empty)
+        // result = where we store answers
+
+        return result; 
+        // return all subsets
     }
+    public static void helper(String s, int i, List<Character> curr, List<List<Character>> result) {
+
+        if(i == s.length()) { 
+            // if we reached end of string
+            // means we formed one complete subset
+
+            result.add(new ArrayList<>(curr)); 
+            // store copy of current subset
+            // (copy needed because curr will change later)
+
+            return; 
+            // stop this path
+        }
+
+        // ❌ NOT TAKE current character
+        helper(s, i + 1, curr, result); 
+        // skip s[i]
+        // move to next index
+        // curr remains same
+
+        // ✅ TAKE current character
+        curr.add(s.charAt(i)); 
+        // add current character to subset
+
+        helper(s, i + 1, curr, result); 
+        // move forward with this character included
+
+        // 🔄 BACKTRACK
+        curr.remove(curr.size() - 1); 
+        // remove last added character
+        // so we can try other combinations
+    }
+    
+    public static void subset3(String s, int i, List<Character> curr, List<List<Character>> result) {
+
+        if(i == s.length()) { 
+            // if we reached end of string
+            // means we formed one complete subset
+
+            result.add(new ArrayList<>(curr)); 
+            // store copy of current subset
+            // (copy needed because curr will change later)
+
+            return; 
+            // stop this path
+        }
+
+        // ❌ NOT TAKE current character
+        helper(s, i + 1, curr, result); 
+        // skip s[i]
+        // move to next index
+        // curr remains same
+
+        // ✅ TAKE current character
+        curr.add(s.charAt(i)); 
+        // add current character to subset
+
+        helper(s, i + 1, curr, result); 
+        // move forward with this character included
+
+        // 🔄 BACKTRACK
+        curr.remove(curr.size() - 1); 
+        // remove last added character
+        // so we can try other combinations
+    }
+
     public static void main(String[] args) {
         // int n = 3;
         // int nums[] = {1,2,3};
         String s = "ab";
-        subsets2_b(s);
+        System.out.println(subsets2_b(s));
     }
 }
 
@@ -81,7 +152,7 @@ n = 3
 👉 Output:
 8
 
-🟢 2️⃣ Print all subsets of a string
+🟢 2️⃣ Print all subsets of a string  //pending question
 👉 Input:
 "ab"
 👉 Output:
