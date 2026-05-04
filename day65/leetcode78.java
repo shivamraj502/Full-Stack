@@ -84,44 +84,54 @@ public class leetcode78 {
         // so we can try other combinations
     }
     
-    public static void subset3(String s, int i, List<Character> curr, List<List<Character>> result) {
+    public static void subsets3(int[] arr) {    ////Generate subsets of an array (without storing)
+        helper(arr, 0, new ArrayList<>()); // start recursion
+    }
+    public static void helper(int[] arr, int i, List<Integer> curr) {
 
-        if(i == s.length()) { 
-            // if we reached end of string
-            // means we formed one complete subset
-
-            result.add(new ArrayList<>(curr)); 
-            // store copy of current subset
-            // (copy needed because curr will change later)
-
-            return; 
-            // stop this path
+        if(i == arr.length) { // reached end → one subset ready
+            System.out.print(curr); // print subset
+            return;
         }
 
-        // ❌ NOT TAKE current character
-        helper(s, i + 1, curr, result); 
-        // skip s[i]
-        // move to next index
-        // curr remains same
+        // ❌ NOT TAKE
+        helper(arr, i + 1, curr); // skip current element
 
-        // ✅ TAKE current character
-        curr.add(s.charAt(i)); 
-        // add current character to subset
-
-        helper(s, i + 1, curr, result); 
-        // move forward with this character included
+        // ✅ TAKE
+        curr.add(arr[i]); // add element
+        helper(arr, i + 1, curr); // move forward
 
         // 🔄 BACKTRACK
-        curr.remove(curr.size() - 1); 
-        // remove last added character
-        // so we can try other combinations
+        curr.remove(curr.size() - 1); // remove last element        
+    }
+
+    public static void subsets4(int[] arr) {    ////Generate subsets of an array (without storing)
+        helper4(arr, 0, new ArrayList<>()); // start recursion
+    }
+
+    public static void helper4(int[] arr, int i, List<Integer> curr) {
+
+        if(i == arr.length) { // reached end → one subset ready
+            System.out.print(curr); // print subset
+            return;
+        }
+
+        // ❌ NOT TAKE
+        helper(arr, i + 1, curr); // skip current element
+
+        // ✅ TAKE
+        curr.add(arr[i]); // add element
+        helper(arr, i + 1, curr); // move forward
+
+        // 🔄 BACKTRACK
+        curr.remove(curr.size() - 1); // remove last element        
     }
 
     public static void main(String[] args) {
         // int n = 3;
-        // int nums[] = {1,2,3};
-        String s = "ab";
-        System.out.println(subsets2_b(s));
+        int nums[] = {1,2,3};
+        // String s = "ab";
+        subsets3(nums);
     }
 }
 
@@ -152,7 +162,7 @@ n = 3
 👉 Output:
 8
 
-🟢 2️⃣ Print all subsets of a string  //pending question
+🟢 2️⃣ Print all subsets of a string  
 👉 Input:
 "ab"
 👉 Output:
