@@ -105,26 +105,24 @@ public class leetcode78 {
         curr.remove(curr.size() - 1); // remove last element        
     }
 
-    public static void subsets4(int[] arr) {    ////Generate subsets of an array (without storing)
-        helper4(arr, 0, new ArrayList<>()); // start recursion
+    public static void subsets4(int[] arr) {    // Generate subsets using include/exclude method
+          helper4(arr, 0, new ArrayList<>());
     }
-
     public static void helper4(int[] arr, int i, List<Integer> curr) {
-
-        if(i == arr.length) { // reached end → one subset ready
-            System.out.print(curr); // print subset
+        if(i == arr.length) { // base case → one subset ready
+            System.out.print(curr);
             return;
         }
 
-        // ❌ NOT TAKE
-        helper(arr, i + 1, curr); // skip current element
-
-        // ✅ TAKE
-        curr.add(arr[i]); // add element
-        helper(arr, i + 1, curr); // move forward
+        // ✅ INCLUDE
+        curr.add(arr[i]);
+        helper(arr, i + 1, curr);
 
         // 🔄 BACKTRACK
-        curr.remove(curr.size() - 1); // remove last element        
+        curr.remove(curr.size() - 1);
+
+        // ❌ EXCLUDE
+        helper4(arr, i + 1, curr);
     }
 
     public static void main(String[] args) {

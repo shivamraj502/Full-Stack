@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "leetcode78",
+            "request": "launch",
+            "mainClass": "leetcode78",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
             "name": "LinearSearch2",
             "request": "launch",
             "mainClass": "day46.LinearSearch2",
