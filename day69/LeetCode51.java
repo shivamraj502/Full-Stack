@@ -39,7 +39,6 @@ public class LeetCode51 {
        printBinN3(n,s+"0");
        printBinN3(n,s+"1");
     }
-
     public static void printSubseq(String s, String t){       // 0 1
        if(t.length() == s.length()){
             return;
@@ -47,7 +46,6 @@ public class LeetCode51 {
        printSubseq(s, t);
        
     }
-    
     public static void printSubseq2(String s, int i, String curr){       // 0 1
        if(i == s.length()){
             System.out.println("\"" + curr + "\"");
@@ -56,7 +54,6 @@ public class LeetCode51 {
        printSubseq2(s, i+1, curr);
        printSubseq2(s, i+1, curr+s.charAt(i));
     }
-
     public static void LeetCode78(String s, int i, String curr){       // 0 1
        if(i == s.length()){
             System.out.println("[" + curr + "]");
@@ -65,8 +62,7 @@ public class LeetCode51 {
        LeetCode78(s, i+1, curr);
        LeetCode78(s, i+1, curr+s.charAt(i));
     }
-
-    public static List<List<Integer>> LeetCode78b(int [] nums){       // 0 1
+   public static List<List<Integer>> LeetCode78b(int [] nums){       // 0 1
        List<List<Integer>> res= new ArrayList<>();
        helper(nums,0,new ArrayList<>(),res);
        return res;
@@ -82,7 +78,6 @@ public class LeetCode51 {
         helper(n, i+1, curr, res);
         curr.remove(curr.size()-1);
     }
-    
     public static List<List<Integer>> LeetCode46a(int [] nums){       // 0 1
        List<List<Integer>> resList= new ArrayList<>();
        helper46(resList,new ArrayList<>(),nums);
@@ -102,7 +97,6 @@ public class LeetCode51 {
          curr.remove(curr.size()-1);
       }
     }
-
     public static List<String> LetComb(String digits){       
        List<String> resList= new ArrayList<>();
 
@@ -127,7 +121,6 @@ public class LeetCode51 {
          helperLC(resList,digits,i+1, curr+letters.charAt(j) ,map);
       }
     }
-    
     public static boolean ratNmaze(int [][] arr, int i, int j){       
       if(i == arr.length-1 && j == arr[0].length-1){
          return true;
@@ -155,7 +148,6 @@ public class LeetCode51 {
 
        return false;
     }
-
     public static List<List<String>> nQueen51(int n){
       List<List<String>> res = new ArrayList<>();
       
@@ -219,13 +211,57 @@ public class LeetCode51 {
         return res;
    }
    
-   
+   public static List<List<String>> NQueen2(int n){
+      List<List<String>> solution2 = new ArrayList<>();
+      char[][] board = new char[n][n];
 
+      for(int i=0;i<n;i++){
+         for(int j=0;j<n;j++){ board[i][j] = '.'; }
+      }
+
+      helper2(board, 0, n, solution2);
+      return solution2;
+   }
+   public static void helper2(char [][] board, int row, int n, List<List<String>> solution2){
+      if(row == n){ solution2.add(construct2(board));return;}
+
+      for(int col=0; col<n;col++){
+         if(isSafe2(board, row, col, n)){
+            board[row][col] = 'Q';
+            helper2(board, row+1, n, solution2);
+            board[row][col] = '.';
+         }
+      }
+   }
+   public static boolean isSafe2(char [][] board,int row, int col, int n){
+      for(int i=row-1;i>=0;i--){
+         if(board[i][col] == 'Q') return false;
+      }
+
+      for(int i=row-1,  j=col-1; i>=0 && j>=0;i--,j--){
+         if(board[i][j] == 'Q')return false;
+      }
+
+      for(int i=row-1, j=col+1; i>=0 && j<n;i--,j++){
+         if(board[i][j] == 'Q')return false;
+      }return true;
+   }
+   public static List<String> construct2(char [][] board){
+      List<String> res = new ArrayList<>();
+      for(int i=0;i<board.length;i++){
+         String temp = "";
+         for(int j=0;j<board[0].length;j++){
+            temp += board[i][j];
+         }res.add(temp);
+      }return res;
+   }
+   
     public static void main(String[] args) {
         int n = 4;
       //   System.out.println(nQueen51(n));
 
-        List<List<String>> solutions = NQueen(4);
+      //   List<List<String>> solutions = NQueen(4);
+        List<List<String>> solutions = NQueen2(4);
         for(List<String> sol : solutions){
             for(String row : sol) System.out.println(row);
             System.out.println();
