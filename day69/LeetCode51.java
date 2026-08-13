@@ -257,11 +257,12 @@ public class LeetCode51 {
    }
    
     public static void main(String[] args) {
-        int n = 4;
+      //   int n = 4;
+        int n = 3;
       //   System.out.println(nQueen51(n));
 
       //   List<List<String>> solutions = NQueen(4);
-        List<List<String>> solutions = NQueen2(4);
+        List<List<String>> solutions = NQueen2(n);
         for(List<String> sol : solutions){
             for(String row : sol) System.out.println(row);
             System.out.println();
