@@ -36,7 +36,6 @@ public class LeetCode40 {
         helper2(nums, t, 0, new ArrayList<>(), res);
         return res;
     }
-
     public static void helper2(int[] nums, int rem, int start, List<Integer> curr, List<List<Integer>> res) {
         if (rem == 0) {
             res.add(new ArrayList<>(curr));
@@ -55,11 +54,12 @@ public class LeetCode40 {
     }
 
     public static void main(String[] args) {
-        int [] nums = {10,1,2,7,6,1,5};
+        // int [] nums = {10,1,2,7,6,1,5};
         int t = 8;
         // List<List<Integer>> res = isSum(nums,t);
         // System.out.println(res);
 
+        int [] nums = {1,2,7,6,1,5,1};
         List<List<Integer>> res = isSum2(nums, t);
         System.out.println(res);
     }
