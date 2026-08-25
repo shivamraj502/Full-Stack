@@ -30,10 +30,37 @@ public class LeetCode40 {
         }
     }
 
+    public static List<List<Integer>> isSum2(int[] nums, int t) {
+        List<List<Integer>> res = new ArrayList<>();
+        Arrays.sort(nums);
+        helper2(nums, t, 0, new ArrayList<>(), res);
+        return res;
+    }
+
+    public static void helper2(int[] nums, int rem, int start, List<Integer> curr, List<List<Integer>> res) {
+        if (rem == 0) {
+            res.add(new ArrayList<>(curr));
+            return;
+        }
+        if (rem < 0)
+            return;
+
+        for (int i = start; i < nums.length; i++) {
+            if (i > start && nums[i] == nums[i - 1])
+                continue; // skip duplicates at same level
+            curr.add(nums[i]);
+            helper2(nums, rem - nums[i], i + 1, curr, res); // i+1: no reuse of same index
+            curr.remove(curr.size() - 1);
+        }
+    }
+
     public static void main(String[] args) {
         int [] nums = {10,1,2,7,6,1,5};
         int t = 8;
-        List<List<Integer>> res = isSum(nums,t);
+        // List<List<Integer>> res = isSum(nums,t);
+        // System.out.println(res);
+
+        List<List<Integer>> res = isSum2(nums, t);
         System.out.println(res);
     }
 }
