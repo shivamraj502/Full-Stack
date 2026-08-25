@@ -6,8 +6,9 @@ Goal: Learn constraint satisfaction via backtracking.
  */
 
 public class LeetCode37 {
-    public static void solveSudoku(char[][] board) {
+    public static char[][] solveSudoku(char[][] board) {
         solve(board);
+        return board;
     }
 
     public static boolean solve(char[][] board){
@@ -78,9 +79,13 @@ public class LeetCode37 {
         // System.out.print("Input: board = ");
         // printBoard(board);
 
-        solveSudoku(board);
+        char [][] result =solveSudoku(board);
+        for(char [] c : result){
+            System.out.println(c);
+        }System.out.println();
 
-        System.out.print("Output: ");
-        printBoard(board);
+        // solveSudoku(board);
+        // System.out.print("Output: ");
+        // printBoard(board);
     }
 }
