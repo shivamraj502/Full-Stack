@@ -20,7 +20,6 @@ public class LeetCode1512 {
         }
         return count;
     }
-
     public static int numIdenticalPairs2(int[] nums) {
         HashSet<Integer> set = new HashSet<>();
         int count = 0;
@@ -35,10 +34,10 @@ public class LeetCode1512 {
         
         return count;
     }
+    
     public static void main(String[] args) {
         int []nums = {1,2,3,1,1,3};
-        // System.out.println("Good Pairs: " + numIdenticalPairs(nums));
-        System.out.println("Good Pairs: " + numIdenticalPairs2(nums));
+        System.out.println("Good Pairs: " + numIdenticalPairs(nums));
     }
 }
 
