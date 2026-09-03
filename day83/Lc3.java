@@ -6,7 +6,7 @@ Goal: Use HashMap for window management.
  */
 
 import java.util.*;
-public class LeetCode3 {
+public class Lc3 {
     public static String longestSub(String s){
         StringBuilder res = new StringBuilder();
         StringBuilder temp = new StringBuilder();
